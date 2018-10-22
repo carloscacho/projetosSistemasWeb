@@ -30,7 +30,9 @@ public class UsuarioController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("listUser", ListaDeUsuarios.usuarios);
+		ClienteDAO cliente = new ClienteDAO();
+		
+		request.setAttribute("listUser", cliente.SelectUsuarios());
 		request.getRequestDispatcher("usuarioscadastrados.jsp").forward(request, response);
 		
 	}
